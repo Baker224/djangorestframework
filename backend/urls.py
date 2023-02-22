@@ -18,12 +18,14 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from library.views import AuthorModelViewSet
 from authapp.views import MyUserModelViewSet
+from TODO.views import TODOModelViewSet, ProjectModelViewSet
 
 router = DefaultRouter()
+
 router.register('authors', AuthorModelViewSet)
-
-router = DefaultRouter()
 router.register('MyUsers', MyUserModelViewSet)
+router.register('TODO', TODOModelViewSet)
+router.register('Project', ProjectModelViewSet)
 
 
 urlpatterns = [
