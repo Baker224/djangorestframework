@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API</title>
+</head>
+<body>
+  <table border="1px">
+    <caption>
+      Music
+    </caption>
+    <tr>
+      <th>album</th>
+      <th>name <a href="http://127.0.0.1:8000/"> sort</a></th>
+      <th>artist@name<a href="http://127.0.0.1:8000/art/"> sort</a> </th>
+      <th>tracks</th>
+    </tr>
+    {% for list in album %}
+    <tr>
+      <td>{{ list.name }} {{ list.year }}</td>
+      <td>{{ list.name }}</td>
+      <td>{{ list.artist }}</td>
+      <td>{% for i in track %}
+        {% if i.album_id == list.id %}
+      {{ i.name }} <br>
+        {% endif %}
+      {% endfor %}
+
+      </td>
+    </tr>
+    {% endfor %}
+
+  </table>
+
+</body>
+</html>

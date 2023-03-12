@@ -22,6 +22,8 @@ from authapp.views import MyUserModelViewSet
 from TODO.views import TODOModelViewSet, ProjectModelViewSet
 from drf_yasg.views import get_schema_view
 from drf_yasg.openapi import Info, License, Contact
+from graphene_django.views import GraphQLView
+
 schema_view = get_schema_view(
     Info (
         title= 'Users',
@@ -47,5 +49,6 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path('api-auth-token/', views.obtain_auth_token),
     path('swagger', schema_view.with_ui()),
+    path('graphql', GraphQLView.as_view(graphiql=True))
     # path('swagger', schema_view.without_ui())
 ]
