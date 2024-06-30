@@ -6,3 +6,4 @@ from .serializers import AuthorModelSerializer
 class AuthorModelViewSet(ModelViewSet):
     serializer_class = AuthorModelSerializer
     queryset = Author.objects.all()
+
