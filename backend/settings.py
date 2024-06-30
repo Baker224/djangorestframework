@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'library',
     'rest_framework',
+    'drf_yasg',
     'authapp',
     'corsheaders',
     'TODO',
@@ -105,7 +106,8 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_PERMISSION_CLASSES' : [
         'rest_framework.permissions.DjangoModelPermissions',
-    ]
+    ],
+    'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.AcceptHeaderVersioning'
 }
 
 # Password validation

@@ -20,6 +20,18 @@ from rest_framework.authtoken import views
 from library.views import AuthorModelViewSet
 from authapp.views import MyUserModelViewSet
 from TODO.views import TODOModelViewSet, ProjectModelViewSet
+from drf_yasg.views import get_schema_view
+from drf_yasg.openapi import Info, License, Contact
+schema_view = get_schema_view(
+    Info (
+        title= 'Users',
+        default_version='1.0',
+        description='text',
+        license=License(name='MIT'),
+        contact= Contact(email='test@yandex.ru')
+    )
+
+)
 
 router = DefaultRouter()
 
@@ -33,5 +45,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include (router.urls)),
     path('api-auth/', include('rest_framework.urls')),
-    path('api-auth-token/', views.obtain_auth_token)
+    path('api-auth-token/', views.obtain_auth_token),
+    path('swagger', schema_view.with_ui()),
+    # path('swagger', schema_view.without_ui())
 ]
